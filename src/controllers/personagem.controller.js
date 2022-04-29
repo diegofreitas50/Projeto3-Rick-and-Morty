@@ -58,7 +58,7 @@ const searchPersonagemController = async (req, res) => {
     personagem,
   );
 
-  if (!searchPersonagem) {
+  if (searchPersonagem.length == 0) {
     return res.status(404).send({ message: 'Personagem não encontrado!' });
   }
 

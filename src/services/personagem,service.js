@@ -25,7 +25,7 @@ const deletePersonagemService = async (id) => {
 };
 
 const searchPersonagemService = async (nome) => {
-  return await Personagem.findOne({ nome: nome });  
+  return await Personagem.find({ nome: nome });  
 };
 
 module.exports = {

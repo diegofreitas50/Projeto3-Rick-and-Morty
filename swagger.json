@@ -34,8 +34,8 @@
               "examples": {
                 "Paletas": {
                   "value": {
-                    "nome": "Maracuja",
-                    "imagem": "teste"
+                    "nome": "Rick",
+                    "imagem": "https://rickandmortyapi.com/api/character/avatar/292.jpeg"
                   }
                 }
               }
@@ -142,7 +142,7 @@
                 "Paletas": {
                   "value": {
                     "nome": "Rick",
-                    "imagem": "teste"
+                    "imagem": "https://rickandmortyapi.com/api/character/avatar/292.jpeg"
                   }
                 }
               }
