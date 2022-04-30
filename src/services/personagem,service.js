@@ -1,18 +1,15 @@
 const Personagem = require('../models/Personagem');
 
 const createPersonagemService = async (newPersonagem) => {
-  const createdPersonagem = await Personagem.create(newPersonagem);
-  return createdPersonagem;
+  return await Personagem.create(newPersonagem);
 };
 
 const allPersonagensService = async () => {
-  const personagens = await Personagem.find();
-  return personagens;
+  return await Personagem.find();
 };
 
 const personagemByIdService = async (id) => {
-  const personagem = await Personagem.findById(id);
-  return personagem;
+  return await Personagem.findById(id);  
 };
 
 const updatePersonagemService = async (id, editedPersonagem) => {
@@ -25,7 +22,7 @@ const deletePersonagemService = async (id) => {
 };
 
 const searchPersonagemService = async (nome) => {
-  return await Personagem.find({ nome: nome });  
+  return await Personagem.find({ nome: nome });
 };
 
 module.exports = {

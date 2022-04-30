@@ -1,16 +1,8 @@
 const personagensService = require('../services/personagem,service');
 const mongoose = require('mongoose');
 
-// const createUsersController = (req, res) => {};
-// const usersController = (req, res) => {};
-// const logincontroller = (req, res) => {};
-
 const createPersonagemController = async (req, res) => {
-  const personagem = req.body;
-  const newPersonagem = await personagensService.createPersonagemService(
-    personagem,
-  );
-  res.status(201).send(newPersonagem);
+  res.status(201).send(await personagensService.createPersonagemService(req.body));
 };
 
 const allPersonagensController = async (req, res) => {
@@ -24,10 +16,7 @@ const allPersonagensController = async (req, res) => {
 };
 
 const personagemByIdController = async (req, res) => {
-  const idParam = req.params.id;
-  const chosenPersonagem = await personagensService.personagemByIdService(
-    idParam,
-  );
+  const chosenPersonagem = await personagensService.personagemByIdService(req.params.id);
 
   if (!chosenPersonagem) {
     return res.status(404).send({ message: 'Personagem não encontrado!' });
@@ -37,39 +26,25 @@ const personagemByIdController = async (req, res) => {
 };
 
 const updatePersonagemController = async (req, res) => {
-  const idParam = req.params.id;
-  const editPersonagem = req.body;
-  const updatedPersonagem = await personagensService.updatePersonagemService(
-    idParam,
-    editPersonagem,
-  );
-  res.send(updatedPersonagem);
+  res.send(await personagensService.updatePersonagemService(req.params.id, req.body));
 };
 
 const deletePersonagemController = async (req, res) => {
-  const idParam = req.params.id;
-  await personagensService.deletePersonagemService(idParam);
+  await personagensService.deletePersonagemService(req.params.id);
   res.send({ message: 'Personagem deletado com sucesso!' });
 };
 
 const searchPersonagemController = async (req, res) => {
-  const personagem = req.params.nome;
-  const searchPersonagem = await personagensService.searchPersonagemService(
-    personagem,
-  );
+  const searchPersonagem = await personagensService.searchPersonagemService(req.params.nome);
 
   if (searchPersonagem.length == 0) {
     return res.status(404).send({ message: 'Personagem não encontrado!' });
   }
 
   res.send(searchPersonagem);
-  
 };
 
 module.exports = {
-  // createUsersController,
-  // usersController,
-  // logincontroller,
   createPersonagemController,
   allPersonagensController,
   personagemByIdController,

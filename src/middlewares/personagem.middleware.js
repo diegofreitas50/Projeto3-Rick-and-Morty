@@ -12,12 +12,7 @@ const validObjrctBody = (req, res, next) => {
   const personagem = req.body;
 
   if (!personagem || !personagem.nome || !personagem.imagem) {
-    return res
-      .status(400)
-      .send({
-        message:
-          'Erro! Você não preencheu todos os campos necessários.',
-      });
+    return res.status(400).send({ message: 'Erro! Você não preencheu todos os campos necessários.' });
   }
   next();
 };
